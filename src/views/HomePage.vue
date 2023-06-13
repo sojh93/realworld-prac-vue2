@@ -82,7 +82,7 @@
 <script>
 
 export default {
-  name: 'HomeMain',
+  name: 'HomePage',
   components: {
   }
 }
