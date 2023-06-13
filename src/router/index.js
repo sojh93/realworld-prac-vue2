@@ -1,32 +1,32 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import router from "vue-router";
 
-Vue.use(VueRouter);
+Vue.use(router);
 
-export default ({
+export default new router({
   routes: [
     {
       path: "/",
       component: () => import("@/views/HomePage"),
-      /* children: [
-          {
-            path: "",
-            name: "home",
-            component: () => import("@/views/HomeGlobal")
-          },
-          {
-            path: "my-feed",
-            name: "home-my-feed",
-            component: () => import("@/views/HomeMyFeed")
-          },
-          {
-            path: "tag/:tag",
-            name: "home-tag",
-            component: () => import("@/views/HomeTag")
-          }
-      ] */
+      children: [
+        {
+          path: "",
+          name: "home",
+          component: () => import("@/views/HomeGlobal"),
+        },
+        {
+          path: "my-feed",
+          name: "home-my-feed",
+          component: () => import("@/views/HomeMyFeed"),
+        },
+        {
+          path: "tag/:tag",
+          name: "home-tag",
+          component: () => import("@/views/HomeTag"),
+        },
+      ],
     },
-   /*  {
+    /*  {
       name: "login",
       path: "/login",
       component: () => import("@/views/Login")
@@ -69,5 +69,5 @@ export default ({
       props: true,
       component: () => import("@/views/ArticleEdit")
     } */
-  ]
+  ],
 });
