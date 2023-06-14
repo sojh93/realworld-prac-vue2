@@ -26,11 +26,12 @@ export default new router({
         },
       ],
     },
-    /*  {
+    {
       name: "login",
       path: "/login",
-      component: () => import("@/views/Login")
+      component: () => import("@/views/Login"),
     },
+    /*
     {
       name: "register",
       path: "/register",
