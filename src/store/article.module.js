@@ -2,7 +2,7 @@ import Vue from "vue";
 import {
   ArticlesService,
   CommentsService,
-  FavoriteService
+  FavoriteService,
 } from "@/common/api.service";
 import {
   FETCH_ARTICLE,
@@ -16,7 +16,7 @@ import {
   ARTICLE_EDIT_ADD_TAG,
   ARTICLE_EDIT_REMOVE_TAG,
   ARTICLE_DELETE,
-  ARTICLE_RESET_STATE
+  ARTICLE_RESET_STATE,
 } from "./actions.type";
 import {
   RESET_STATE,
@@ -24,7 +24,7 @@ import {
   SET_COMMENTS,
   TAG_ADD,
   TAG_REMOVE,
-  UPDATE_ARTICLE_IN_LIST
+  UPDATE_ARTICLE_IN_LIST,
 } from "./mutations.type";
 
 const initialState = {
@@ -33,9 +33,9 @@ const initialState = {
     title: "",
     description: "",
     body: "",
-    tagList: []
+    tagList: [],
   },
-  comments: []
+  comments: [],
 };
 
 export const state = { ...initialState };
@@ -91,7 +91,7 @@ export const actions = {
   },
   [ARTICLE_RESET_STATE]({ commit }) {
     commit(RESET_STATE);
-  }
+  },
 };
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
@@ -106,13 +106,13 @@ export const mutations = {
     state.article.tagList = state.article.tagList.concat([tag]);
   },
   [TAG_REMOVE](state, tag) {
-    state.article.tagList = state.article.tagList.filter(t => t !== tag);
+    state.article.tagList = state.article.tagList.filter((t) => t !== tag);
   },
   [RESET_STATE]() {
     for (let f in state) {
       Vue.set(state, f, initialState[f]);
     }
-  }
+  },
 };
 
 const getters = {
@@ -121,12 +121,12 @@ const getters = {
   },
   comments(state) {
     return state.comments;
-  }
+  },
 };
 
 export default {
   state,
   actions,
   mutations,
-  getters
+  getters,
 };

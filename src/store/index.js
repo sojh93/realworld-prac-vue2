@@ -13,6 +13,6 @@ export default new Vuex.Store({
     home,
     auth,
     article,
-    profile
-  }
+    profile,
+  },
 });
